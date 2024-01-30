@@ -6,7 +6,7 @@ function GameOver() {
   return (
     <div className="gameover">
       <h1>Game over</h1>
-      <h1>Game completed successfully.</h1>
+      <p>Game completed successfully.</p>
       <h1>
         {result === "cross"
           ? "Winner is Player 2"
