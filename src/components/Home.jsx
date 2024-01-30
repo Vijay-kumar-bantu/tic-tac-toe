@@ -73,8 +73,8 @@ function Home() {
     <div className="game">
       <h1>Tic tac toe</h1>
       <div className="info">
-        <p>Player 1 Circle</p>
-        <p>Player 2 Cross</p>
+        <p>Player 1 : Circle</p>
+        <p>Player 2 : Cross</p>
       </div>
       <div className="parent">
         {arr.map((item) => {

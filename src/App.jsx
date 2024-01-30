@@ -7,6 +7,7 @@ function App() {
     <Routes>
       <Route element={<Home />} path="/" />
       <Route element={<GameOver />} path="/gameover/:result" />
+      <Route element={<Home />} path="*" />
     </Routes>
   );
 }

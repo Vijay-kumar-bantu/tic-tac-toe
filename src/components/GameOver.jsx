@@ -9,13 +9,13 @@ function GameOver() {
       <h1>Game completed successfully.</h1>
       <h1>
         {result === "cross"
-          ? "Winner is Cross"
+          ? "Winner is Player 2"
           : result === "circle"
-          ? "Winner is Circle"
+          ? "Winner is Player 1"
           : "Draw Game."}
       </h1>
-      <Link to="/">
-        <h1>Wanna play again.</h1>
+      <Link className="link" to="/">
+        <p>Wanna play again.</p>
       </Link>
     </div>
   );
