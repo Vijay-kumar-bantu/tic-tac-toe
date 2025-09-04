@@ -5,68 +5,44 @@ import { useNavigate } from "react-router-dom";
 function Home() {
 	const [toggle, setToggle] = useState(true);
 	const [data, setData] = useState({});
-	const [over, setOver] = useState({ over: false, winner: "" });
 	const navigate = useNavigate();
 
 	useEffect(() => {
-		isOver("circle");
-		isOver("cross");
-	}, [data]);
+		const isCircle = isOver("circle");
+		const isCross = isOver("cross");
 
-	useEffect(() => {
-		if (over.over) {
-			navigate(`/gameover/${over.winner}`);
+		if (isCircle) {
+			navigate(`/gameover/circle`);
 		}
 
-		if (Object.keys(data).length === 9 && over.over === false) {
-			console.log(over);
+		if (isCross) {
+			navigate(`/gameover/cross`);
+		}
+
+		if (Object.keys(data).length === 9 && !isCircle && !isCross) {
 			navigate("gameover/draw");
 		}
-	}, [over]);
+	}, [data]);
 
 	function isOver(obb) {
 		if (data[1] === obb && data[2] === obb && data[3] === obb) {
-			setOver({
-				over: true,
-				winner: obb,
-			});
+			return true;
 		} else if (data[4] === obb && data[5] === obb && data[6] === obb) {
-			setOver({
-				over: true,
-				winner: obb,
-			});
+			return true;
 		} else if (data[7] === obb && data[8] === obb && data[9] === obb) {
-			setOver({
-				over: true,
-				winner: obb,
-			});
+			return true;
 		} else if (data[1] === obb && data[4] === obb && data[7] === obb) {
-			setOver({
-				over: true,
-				winner: obb,
-			});
+			return true;
 		} else if (data[2] === obb && data[5] === obb && data[8] === obb) {
-			setOver({
-				over: true,
-				winner: obb,
-			});
+			return true;
 		} else if (data[3] === obb && data[6] === obb && data[9] === obb) {
-			setOver({
-				over: true,
-				winner: obb,
-			});
+			return true;
 		} else if (data[1] === obb && data[5] === obb && data[9] === obb) {
-			setOver({
-				over: true,
-				winner: obb,
-			});
+			return true;
 		} else if (data[3] === obb && data[5] === obb && data[7] === obb) {
-			setOver({
-				over: true,
-				winner: obb,
-			});
+			return true;
 		} else {
-			return;
+			return false;
 		}
 	}
 
